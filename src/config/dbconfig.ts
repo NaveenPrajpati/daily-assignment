@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const BASEURL='mongodb://127.0.0.1:27017/dailyassign'
 export async function connectdb(){
     try {
-        mongoose.connect(process.env.BASEURL!)
+        mongoose.connect(process.env.BASEURL!,)
         mongoose.connection.on('connected',()=>{
             console.log('db connected successfully')
         })

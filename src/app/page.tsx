@@ -25,6 +25,7 @@ export default function Home() {
   }
 
   async function signuphandler(event: { preventDefault: () => void }){
+    console.log('signup handler')
     event.preventDefault()
     console.log(signupform)
     if(signupform==false)
@@ -48,14 +49,18 @@ export default function Home() {
 
 
   async function submithandler(event: { preventDefault: () => void }) {
+    console.log('login handler')
     event.preventDefault()
     if(signupform)
     setsignupform(false)
-    else{
+    else if(!signupform)
+    {
        await axios.post('/api/login', loginData)
     .then(res=>{
-      console.log(res)
+      console.log(res.data)
+      if(res.data.success)
       router.push('/dashboard')
+    
     })
     .catch(err=>{
       console.log(err)

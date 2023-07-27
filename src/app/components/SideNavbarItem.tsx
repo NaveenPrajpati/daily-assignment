@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Key } from 'react'
 import {IoIosArrowDown} from 'react-icons/io'
 import {RxDashboard} from 'react-icons/rx'
 
@@ -13,7 +13,7 @@ export default function SideNavbarItem({item,subitem}:{item:String,subitem:strin
                 </div>
                 <IoIosArrowDown/>
             </div>
-            {subitem?.map((item: string ,index: React.Key | null | undefined)=>(
+            {subitem?.map((item: string ,index: Key)=>(
 
             <p className='px-[50px] mb-[10px]' key={index}>{item}</p>
             ))}

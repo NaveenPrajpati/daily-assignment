@@ -6,4 +6,6 @@ const userSchema=new mongoose.Schema({
     password:{type:String}
 })
 
-export default mongoose.model('user2',userSchema);
+
+//This method is used to prevent overwrite model once compiled Mongoose
+export default mongoose.models.user2 || mongoose.model('user2',userSchema);

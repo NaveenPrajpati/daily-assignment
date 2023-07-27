@@ -8,6 +8,7 @@ connectdb()
 export async function POST(request: NextRequest) {
     try {
         const body=await request.json()
+        
         console.log(body)
 
         const user= await userMode.findOne({email:body.email})
@@ -24,7 +25,7 @@ export async function POST(request: NextRequest) {
             password:hasdpass
         })
 console.log(mod)
-        mod.save()
+       await mod.save()
 
         return NextResponse.json({
           message:'signup success',
